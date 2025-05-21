@@ -1,6 +1,12 @@
-name = "doodle-server"
+name = "doodle_server"
 version = "1.0.0"
 
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
+sqlight = ">= 1.0.1 and < 2.0.0"
+mist = ">= 4.0.7 and < 5.0.0"
+gleam_yielder = ">= 1.1.0 and < 2.0.0"
+gleam_erlang = ">= 0.34.0 and < 1.0.0"
+gleam_http = ">= 4.0.0 and < 5.0.0"
+gleam_crypto = ">= 1.5.0 and < 2.0.0"
 
