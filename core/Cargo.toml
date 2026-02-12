@@ -1,0 +1,14 @@
+[package]
+name = "doodle-core"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["dylib"]
+
+[dependencies]
+claxon = "0.4.3"
+rustler = { version = "0.37.2", features = ["serde"] }
+serde = { version = "1.0.228", features = ["derive"] }
+smol_str = { version = "0.3.5", features = ["serde"] }
+thiserror = "2.0.18"
