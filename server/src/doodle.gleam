@@ -54,8 +54,8 @@ pub fn main() -> Nil {
 
         msg
         |> request.decode_request
-        |> result.map_error(request.error_to_response)
         |> result.try(action.request_to_response)
+        |> result.map_error(request.error_to_response)
         |> fn(result) {
           case result {
             Ok(response) -> response

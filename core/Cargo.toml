@@ -8,6 +8,7 @@ crate-type = ["dylib"]
 
 [dependencies]
 claxon = "0.4.3"
+rusqlite = { version = "0.38.0", default-features = false }
 rustler = { version = "0.37.2", features = ["serde"] }
 serde = { version = "1.0.228", features = ["derive"] }
 smol_str = { version = "0.3.5", features = ["serde"] }

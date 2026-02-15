@@ -1,12 +1,7 @@
-use std::{
-    collections::{BTreeMap, HashMap},
-    error::Error,
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{collections::BTreeMap, error::Error, path::Path};
 
 use claxon::{FlacReader, FlacReaderOptions};
-use rustler::{NifRecord, SerdeTerm, Term};
+use rustler::SerdeTerm;
 use serde::Serialize;
 use smol_str::SmolStr;
 
@@ -25,8 +20,7 @@ struct Metadata {
     tags: BTreeMap<SmolStr, SmolStr>,
 }
 
-#[rustler::nif(schedule = "DirtyIo")]
-pub fn flac_metadata(path: &Path) -> Result<SerdeTerm<Metadata>, String> {
+fn flac_metadata(path: &Path) -> Result<Metadata, String> {
     let reader = FlacReader::open_ext(
         path,
         FlacReaderOptions {
@@ -36,11 +30,8 @@ pub fn flac_metadata(path: &Path) -> Result<SerdeTerm<Metadata>, String> {
     )
     .compat()?;
 
-    let tags = reader
-        .tags()
-        .map(|(k, v)| (k.into(), v.into()))
-        .collect();
-    Ok(SerdeTerm(Metadata { tags }))
+    let tags = reader.tags().map(|(k, v)| (k.into(), v.into())).collect();
+    Ok(Metadata { tags })
 }
 
 rustler::init!("doodle_core");
