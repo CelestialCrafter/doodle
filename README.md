@@ -1,5 +1,8 @@
 # doodle
 
+> [!WARNING]
+> this repository has moved to [tangled](https://tangled.org/celestial.moe/doodle)!
+
 [![Package Version](https://img.shields.io/hexpm/v/doodle)](https://hex.pm/packages/doodle)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/doodle/)
 
